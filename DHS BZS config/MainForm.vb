@@ -297,6 +297,7 @@ Public Class scripts_config_form
 
             'Creates each script file one at a time
             create_VBS_fso = CreateObject("Scripting.FileSystemObject")
+            If create_VBS_fso.FolderExists(location_to_save_script_files.Text & "/Script files/") = False Then create_VBS_fso.CreateFolder(location_to_save_script_files.Text & "/Script files/")
             create_VBS_command = create_VBS_fso.CreateTextFile(location_to_save_script_files.Text & "/Script files/" & Trim(redirect_to_make), 2)
             create_VBS_command.Write(redirect_file_contents)
             create_VBS_command.Close()
